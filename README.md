@@ -7,7 +7,7 @@
 ## Installation
 
 ```
-git clone https://github.com/michaelpeterswa/cpsc211.git
+git clone https://github.com/michaelpeterswa/cpsc223.git
 ```
 Or download the file manually.
 
