@@ -4,7 +4,6 @@ CPSC223 01
 Homework Assignment 1
 Thursday, September 6, 2018
 
-
 ADT Key (Texting Abbreviation)
 Specification file for ADT Key (Testing Abbreviation)
    data object: a key or texting abbreviation (unique)
