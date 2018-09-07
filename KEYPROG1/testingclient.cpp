@@ -1,5 +1,5 @@
 /*
-Michael Peters
+Michael Peters and Nathan Flack
 CPSC223 01
 Homework Assignment 1
 Thursday, September 6, 2018
@@ -47,7 +47,7 @@ int main()
    //here is the switch-case that deals with wether the user
    //would like to use a file or type in their textingAbbreviation
 
-   switch (inputChoice) { 
+   switch (inputChoice) {
      case 'y':
        firstOne.read(infile);
        break;

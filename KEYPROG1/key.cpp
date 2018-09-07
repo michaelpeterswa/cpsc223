@@ -1,5 +1,5 @@
 /*
-Michael Peters
+Michael Peters and Nathan Flack
 CPSC223 01
 Homework Assignment 1
 Thursday, September 6, 2018
