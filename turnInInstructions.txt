@@ -1,0 +1,13 @@
+if folder is KEYPROG1:
+
+      dropoff KEYPROG1
+
+      H. CPS 223 01
+
+    returns "KEYPROG1 has been submitted to cpsc223_01"
+
+    [IF IT SAYS GOODBYE NOTHING HAPPENED]
+    you must be in the directory that you want to drop things off into
+    Example:
+
+      mpeters4@ada:~/cpsc223
