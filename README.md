@@ -11,6 +11,13 @@ git clone https://github.com/michaelpeterswa/cpsc223.git
 ```
 Or download the file manually.
 
+## Compilation for each program
+
+KEYPROG1
+```
+g++ testingclient.cpp key.cpp -o mytester
+```
+
 ## Release History
 
 * 0.1
