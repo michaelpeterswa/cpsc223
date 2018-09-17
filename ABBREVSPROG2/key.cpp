@@ -1,6 +1,6 @@
-//filename key.cpp
-//author  Dr. Y
-//date September 7, 2018
+//Michael Peters
+//CPSC223 01
+//key.cpp
 //Implementation of Abstract Data Type Key
 //
 //   data object: a key which is a texting abbreviation

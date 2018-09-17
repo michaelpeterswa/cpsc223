@@ -51,15 +51,15 @@ Item();
 ~Item();
 
 //creates a new item and copies the right hand side item into item
-//pre
-//post
+//pre Item object exists
+//post rightHandSideItem is copied into new item
 //usage  Item myItem(yourItem);
 Item(const Item& rightHandSideItem);
 
-//
-//pre
-//post
-//usage
+//copies rightHandSideItem's member variables into an existing item
+//pre Item object exists
+//post Item object contains the member variables from rightHandSideItem
+//usage exampleItem = secondItem;
 Item& operator=(const Item& rightHandSideItem);
 
 private:

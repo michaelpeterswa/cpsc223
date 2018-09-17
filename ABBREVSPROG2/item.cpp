@@ -46,8 +46,8 @@ Item::~Item(){
 }
 
 //creates a new item and copies the right hand side item into item
-//pre
-//post
+//pre Item object exists
+//post rightHandSideItem is copied into new item
 //usage  Item myItem(yourItem);
 Item::Item(const Item& rightHandSideItem){
   textingMeaning = rightHandSideItem.textingMeaning;

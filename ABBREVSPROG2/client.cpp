@@ -27,8 +27,8 @@ int main() {
 
   ifstream infile("in.dat"); //file input used for testing reading from file
   ofstream outfile("out.dat"); //file output used for testing writing to a file
-  Item firstOne, thirdOne, fromFile;
-  Key firstKey, fromFileKey;
+  Item firstOne, thirdOne, fromFile; // initialize item objects
+  Key firstKey, fromFileKey; // initialize key objects
 
   cout << "-----------------------" << endl;
   cout << "  INITIALIZE OBJECTS" << endl;
@@ -45,14 +45,14 @@ int main() {
   cin >> firstKey;
   cout << endl;
   cout << "reading from in.dat..." << endl;
-  infile >> fromFileKey;
+  infile >> fromFileKey; //first read from infile
   cout << endl;
   cout << "fromFileKey -- " << fromFileKey << endl;
   cout << endl;
 
   cout << "writing firstKey to out.dat..." << endl;
   cout << endl;
-  outfile << "firstKey -> " << firstKey << endl;
+  outfile << "firstKey -> " << firstKey << endl; // first write to outfile
 
 
   cout << "testing class Key copy constructor..." << endl;
@@ -108,7 +108,7 @@ int main() {
   cin >> firstOne;
   cout << endl;
   cout << "reading from in.dat..." << endl;
-  infile >> fromFile;
+  infile >> fromFile; //second read from infile
   cout << endl;
 
   cout << "firstOne -- " << firstOne;
@@ -117,7 +117,7 @@ int main() {
 
   cout << "writing firstOne to out.dat..." << endl;
   cout << endl;
-  outfile << "firstOne -> " << firstOne << endl;
+  outfile << "firstOne -> " << firstOne << endl; //second write to infile
 
   cout << "testing class Item copy constructor..." << endl;
   cout << "copying firstKey to secondKey..." << endl;
