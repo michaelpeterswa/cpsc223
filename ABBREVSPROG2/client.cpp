@@ -1,7 +1,7 @@
 /*
 Michael Peters and Nathan Flack
 CPSC223 01
-Homework Assignment 1
+Homework Assignment 2
 Thursday, September 14, 2018
 
 ADT Item (Texting Abbreviation and Meaning)
