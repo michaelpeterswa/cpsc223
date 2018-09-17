@@ -1,3 +1,23 @@
+
+// Michael Peters
+// Nathan Flack
+// CPSC223 01
+// Homework Assignment 2
+// September 14, 2018
+
+//    *****************
+//    dropoff: mpeters4
+//    *****************
+
+// Specification of ADT Item where
+//     an Item is-a Key  (technical computer science)
+//     class Item is a derived or child class of class Key
+
+//     data object: a meaning of a texting abbreviation
+//     operations: create, destroy, copy create, copy
+//                 input, output
+
+
 #include "item.h"
 
 //allows for input of an item from either the standard input device or a file
@@ -10,12 +30,15 @@
 //post rightHandSideItem has been filled with a texting abbreviation and its
 //     associated meaning
 //usage cin >> myItem;
+
 istream& operator>> (istream& input, Item& rightHandSideItem){
   char newline;
 
   input >> rightHandSideItem.textingAbbreviation;
   input.get(newline);
   getline(input,rightHandSideItem.textingMeaning);
+
+  return input;
 }
 
 //allows for the output of an item to the standard output device or a file
@@ -28,6 +51,8 @@ istream& operator>> (istream& input, Item& rightHandSideItem){
 //usage  outfile << myItem;
 ostream& operator<< (ostream& output, const Item& rightHandSideItem){
   output << rightHandSideItem.textingAbbreviation << ": " << rightHandSideItem.textingMeaning << endl;
+
+  return output;
 }
 
 //creates an empty item (texting abbreviation and its associated meaning)
