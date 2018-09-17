@@ -17,6 +17,10 @@ KEYPROG1
 ```
 g++ testingclient.cpp key.cpp -o mytester
 ```
+ABBREVSPROG2
+```
+g++ client.cpp key.cpp item.cpp –o mytester
+```
 
 ## Release History
 
