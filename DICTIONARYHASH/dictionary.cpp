@@ -42,8 +42,8 @@ ostream& operator<< (ostream& output, const Dictionary& rightHandSideDictionary)
 	output << "address" << "\t" << "text" << "\t" << "meaning" << endl;
 
 	for (int i = 0; i < TABLESIZE; i++){
-	 output << i << "\t" <<rightHandSideDictionary.dictionaryPtr-> hashTablePtr[i] << endl;
- }
+	 	output << i << "\t" <<rightHandSideDictionary.dictionaryPtr-> hashTablePtr[i] << endl;
+ 	}
  return output;
 }
 
@@ -67,12 +67,10 @@ istream& operator>> (istream& input, Dictionary& rightHandSideDictionary)
 
   Item newItem;
   for(int i = 0; i < numberOfEntries; i++){
-	input >> newItem;
-    rightHandSideDictionary.addNewEntry(newItem, isFull, isAlreadyThere);
+		input >> newItem;
+		rightHandSideDictionary.addNewEntry(newItem, isFull, isAlreadyThere);
   }
-
   return input;
-
 }
 
 //constructor
