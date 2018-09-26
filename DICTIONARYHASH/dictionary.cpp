@@ -67,8 +67,8 @@ istream& operator>> (istream& input, Dictionary& rightHandSideDictionary)
 
   Item newItem;
   for(int i = 0; i < numberOfEntries; i++){
-		input >> newItem;
-		rightHandSideDictionary.addNewEntry(newItem, isFull, isAlreadyThere);
+	  input >> newItem;
+	  rightHandSideDictionary.addNewEntry(newItem, isFull, isAlreadyThere);
   }
   return input;
 }
