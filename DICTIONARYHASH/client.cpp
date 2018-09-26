@@ -28,6 +28,7 @@ int main (){
     cout << "        created Key object 'search' " << endl;
     cout << "     ----------------------------------" << endl;
     cout << endl;
+
     cout << "    first read from in.dat of four abbreviations" << endl;
     infile >> master;
     cout << "    printing current dictionary (2a)" << endl;
@@ -35,23 +36,25 @@ int main (){
     cout << master;
     cout << "     ----------------------------------" << endl;
     cout << endl;
+
     cout << "     second read from in.dat of three abbreviations" << endl;
     infile >> master;
     cout << "     printing current dictionary (2b)" << endl;
     cout << endl;
     cout << master;
     cout << "     ----------------------------------" << endl;
-
     cout << endl;
+    
     cout << "searching for l8r (2c short)" << endl;
     cout << "if found, l8r will be printed, along with it's meaning" << endl;
     cout << endl;
     infile >> search;
     master.searchForMeaning(search, anItem, isFound);
-    if(isFound)
-      cout << anItem << endl;
-    else
-      cout << "l8r not found in dictionary" << endl;
+
+        if(isFound)
+            cout << anItem << endl;
+        else
+            cout << "l8r not found in dictionary" << endl;
 
     cout << endl;
     cout << "searching for lorf (2c long)" << endl;
@@ -59,17 +62,18 @@ int main (){
     cout << endl;
     infile >> search;
     master.searchForMeaning(search, anItem, isFound);
-    if(isFound)
-      cout << anItem << endl;
-    else
-      cout << "lorf not found in dictionary" << endl;
+
+        if(isFound)
+            cout << anItem << endl;
+        else
+            cout << "lorf not found in dictionary" << endl;
 
     cout << "     ----------------------------------" << endl;
     cout << endl;
 
     infile >> search;
     cout << "removing orlf from dictionary (2d)" << endl;
-    cout << "notice that address 0 is 'marked'" << endl;
+    cout << "notice that address 9 is 'marked'" << endl;
     master.deleteEntry(search, isEmpty, isFound);
     cout << endl;
     cout << master;
@@ -86,6 +90,10 @@ int main (){
     else
       cout << "lorf not found in dictionary" << endl;
 
+    cout << endl;
+    cout << endl;
+    cout << "goodbye!" << endl;
+    cout << endl;
 
 infile.close();
 return 0;
