@@ -21,6 +21,10 @@ ABBREVSPROG2
 ```
 g++ client.cpp key.cpp item.cpp –o mytester
 ```
+DICTIONARYHASH
+```
+g++ client.cpp dictionary.cpp key.cpp item.cpp –o gohash
+```
 
 ## Release History
 
