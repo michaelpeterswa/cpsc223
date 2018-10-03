@@ -1,11 +1,11 @@
 /*
-Alex Giacobbi and Nathan Flack
-agiacobbi
+Michael Peters and Nathan Flack
+mpeters4
 17 September 2018
 Description: This is the implementation file for abstract data type Item. This file contains function headers and
-bodies for the class Item's methods as well as documentation for each function. This data object is an Item which 
-stores a texting abbreviation (inherited from Key) and an associated texting meaning. The class inherits functions 
-and data members from class Key and has its own methods and friends that create, destroy, copy, assign, input, and 
+bodies for the class Item's methods as well as documentation for each function. This data object is an Item which
+stores a texting abbreviation (inherited from Key) and an associated texting meaning. The class inherits functions
+and data members from class Key and has its own methods and friends that create, destroy, copy, assign, input, and
 output.
 */
 
@@ -33,14 +33,14 @@ istream& operator>> (istream& input, Item& rightHandSideItem)
 
     return input;
 }
- 
+
 //allows for the output of an item to the standard output device or a file
 //pre rightHandSideItem has been filled with a texting abbreviation and
-//    its associated meaning 
+//    its associated meaning
 //    output has been opened
 //post rightHandSideItem has been written to the output device
 //     lol:  laugh out loud
-// 
+//
 //usage  outfile << myItem;
 ostream& operator<< (ostream& output, const Item& rightHandSideItem)
 {
@@ -53,13 +53,13 @@ ostream& operator<< (ostream& output, const Item& rightHandSideItem)
 //usage Item itemA();
 Item::Item()
 {
-   
+
 }
 
 //creates a specific texting meaning
 //pre rightHandSideItem is an Item assigned a string that represents a texting meaning
 //post Item object has a copy of the texting meaning in rightHandSideItem
-//usage Item myItem(yourItem); 
+//usage Item myItem(yourItem);
 Item::Item(const Item& rightHandSideItem)
 {
     textingAbbreviation = rightHandSideItem.textingAbbreviation;
@@ -72,7 +72,7 @@ Item::Item(const Item& rightHandSideItem)
 //usage automatically done at the end of scope
 Item::~Item()
 {
-   
+
 }
 
 //copies a texting meaning
