@@ -22,19 +22,27 @@ struct DictionaryRecord
    int numberStored;
 };
 
+//hashing function
+//pre: key object exists
+//post: hashed value returned
+//usage: hashFunction(akey);
 int hashFunction(const Key& theText)
 {
    return theText.convertToInteger() % TABLESIZE;
 }
 
+//prints the stack object
+//pre: stack exists
+//post: printed to console
+//usage: printStack(testStack);
 void printStack(Stack copyStack)
 {
 	Item topItem;
     while(!copyStack.isEmpty())
     {
-    copyStack.getTop(topItem);
-    cout << "\t->\t" << topItem << endl;
-    copyStack.pop();
+        copyStack.getTop(topItem);
+        cout << "\t->\t" << topItem << endl;
+        copyStack.pop();
     }
 }
 
@@ -57,8 +65,8 @@ ostream& operator<< (ostream& output, const Dictionary& rightHandSideDictionary)
     {
 		if(!rightHandSideDictionary.dictionaryPtr->hashTablePtr[i].isEmpty())// if the stack isnt empty
 		{
-        output << i << ":" << endl;
-        printStack(rightHandSideDictionary.dictionaryPtr->hashTablePtr[i]);
+            output << i << ":" << endl;
+            printStack(rightHandSideDictionary.dictionaryPtr->hashTablePtr[i]);
 		}
     }
     return output;
@@ -114,11 +122,11 @@ Dictionary::~Dictionary()
 	dictionaryPtr = NULL;
 }
 
-//
-//
-//
-//
-//
+
+//search function that traverses the stack
+//pre: stack exists, Item exists, Key exists, boolean isFound exists
+//post: returns a foundItem through the reference and a true to isFound
+//usage: searchTheStack(astack, isFound, akey, foundItem);
 void searchTheStack(Stack copyStack, bool& isFound, const Key& targetText, Item& foundItem)  //might need to be in dictionary
 {
 	Item foundKey;
@@ -163,7 +171,8 @@ void Dictionary::addNewEntry(const Item& newItem, bool& isAlreadyThere)
     int address = hashFunction(newItem);
 	bool isAdded, isFound;
 	Item foundItem;
-	searchForMeaning(newItem, foundItem, isFound);
+
+    searchForMeaning(newItem, foundItem, isFound);
 	if (isFound && (foundItem == newItem))
 	{
 		isAlreadyThere = true;
@@ -214,32 +223,3 @@ void Dictionary::deleteEntry(const Key& targetText, bool& isEmpty, bool& isFound
         copyStack.pop();
     }
 }
-
-// checks if the dictionary is empty
-// pre: none
-// post: if Dictionary object is empty function returns true
-//       else function will return false
-// usage: myDictionary.isEmpty();
-// bool Dictionary::isEmpty()
-// {
-//     return (dictionaryPtr->numberStored == 0);
-// }
-
-// checks if the dictionary is full
-// pre: none
-// post: if Dictionary object is full function returns true
-//       else function will return false
-// usage: myDictionary.isFull();
-// bool Dictionary::isFull()
-// {
-//     return (dictionaryPtr->numberStored == TABLESIZE);
-// }
-
-// tells user how many items are in dictionary object
-// pre: none
-// post: returns the number of entries in the dictionary as an integer
-// usage: myDictionary.getNumberOfEntries();
-// int Dictionary::getNumberOfEntries()
-// {
-//     return dictionaryPtr->numberStored;
-// }
