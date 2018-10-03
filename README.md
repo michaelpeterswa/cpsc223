@@ -27,7 +27,7 @@ g++ client.cpp dictionary.cpp key.cpp item.cpp –o gohash
 ```
 DICTIONARYCHAINING
 ```
-clang++ -std=c++11 client.cpp dictionary.cpp item.cpp key.cpp stack.cpp -o mytester
+clang++ -std=c++11 client.cpp dictionary.cpp item.cpp key.cpp stack.cpp -o gochain
 ```
 
 ## Release History
