@@ -129,7 +129,6 @@ Dictionary::~Dictionary()
 //usage: searchTheStack(astack, isFound, akey, foundItem);
 void searchTheStack(Stack copyStack, bool& isFound, const Key& targetText, Item& foundItem)  //might need to be in dictionary
 {
-	Item foundKey;
 	isFound = false;
 	while(!copyStack.isEmpty() && !isFound)
 	{
