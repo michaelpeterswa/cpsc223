@@ -7,6 +7,11 @@ contains function headers and bodies for the class Dictionary's methods as well 
 for each function. This data object is a Dictionary which stores Stacks of Items in a hash table. The class
 has methods that create, destroy, search for a meaning, insert a new item, remove item, input,
 output, check if dictionary is empty or full, and return number of entries.
+
+******************
+dropoff: mpeters4
+******************
+
 */
 
 #include "dictionary.h"
@@ -196,10 +201,10 @@ void Dictionary::deleteEntry(const Key& targetText, bool& isEmpty, bool& isFound
 {
 	isFound = false;
 	isEmpty = false;
-    bool isAdded = false;
-    int address = hashFunction(targetText);
+  bool isAdded = false;
+  int address = hashFunction(targetText);
 	Item foundItem, compareItem;
-    Stack copyStack;
+  Stack copyStack;
 
 
 	searchForMeaning(targetText, foundItem, isFound);
