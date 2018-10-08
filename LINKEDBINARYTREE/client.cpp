@@ -9,9 +9,12 @@ using namespace std;
 //opens an input file with a chosen name
 //pre filename is assigned
 //post if filename exists in the same directory as the program, it is opened
-//      with its file pointer at the beginning of the file 
+//      with its file pointer at the beginning of the file
 //      else an error message is printed
 //usage openInputFile(infile, filename);
+
+// clang++ -std=c++11 client.cpp binarytree.cpp exception.cpp treenode.cpp item.cpp key.cpp -o gotree
+
 void openInputFile(ifstream& inputFile, string filename);
 
 //prints an exception message
@@ -26,26 +29,26 @@ int main()
    ifstream infile;
 
    openInputFile(infile, "in.dat");
-   
+
    try {
-     mytree.make(infile);
+     mytree.makeFullTreeHeight2(infile);
      mytree.preorderTraverse();
     }
    catch (Exception except)
    {
       printExceptionMessage(except);
    }
-  
+
    return 0;
 }
 
 //opens an input file with a chosen name
 //pre filename is assigned
 //post if filename exists in the same directory as the program, it is opened
-//      with its file pointer at the beginning of the file 
+//      with its file pointer at the beginning of the file
 //      else an error message is printed
 //usage openInputFile(infile, filename);
-void openInputFile(ifstream& inputFile, string filename) 
+void openInputFile(ifstream& inputFile, string filename)
 {
    inputFile.open(filename);
    if (inputFile.fail())
@@ -62,9 +65,6 @@ void openInputFile(ifstream& inputFile, string filename)
 void printExceptionMessage(const Exception& except)
 {
    cout << endl << endl;
-   cout << except.What();
+   cout << except.what();
    cout << endl << endl;
 }
-   
-
-   

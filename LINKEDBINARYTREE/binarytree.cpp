@@ -1,12 +1,12 @@
 //file binarytree.cpp
-//author and 
+//author and
 //date
 
 //data object: a binary tree which is YOU DO
 //data structure: a linked binary tree
 //operations: YOU DO
 
-#include "BinaryTree.h"
+#include "binarytree.h"
 #include <iostream>
 using namespace std;
 
@@ -41,17 +41,17 @@ void writePretty (TreeNode* treep, int level)
 
 // ********** recursive helpers for the traversals ****************
 //pre: treep points to the root of a binary tree to be traversed
-//post: prints the item objects in the nodes on the screen in the 
+//post: prints the item objects in the nodes on the screen in the
 //     specified order. the items are separated by commas
-//usage: preorder (mroot);   
+//usage: preorder (mroot);
 //       similarly for the others
 void preorder (TreeNode* treep)
 {
-	if (treep == nullptr)
+	if (treep != nullptr)
 	{
-		cout << treep -> item;
+		cout << treep -> item << endl;
 		preorder(treep -> leftChild);
-		preorder(treep -> rightChild)
+		preorder(treep -> rightChild);
 	}
 }
 
@@ -117,7 +117,7 @@ BinaryTree& BinaryTree::operator=(const BinaryTree& rightHandSideTree) throw (Ex
 {
 
 
-
+return *this;
 }
 
 //prints the tree to look like a computer science tree
@@ -140,7 +140,7 @@ void BinaryTree::prettyDisplay()
 // *************** on the following traversals
 
 //post: prints the objects in the tree in order specified
-//usage: tree.preorderTraverse();  
+//usage: tree.preorderTraverse();
 //similarly for the other traversals
 // *****************************************************
 void BinaryTree::preorderTraverse ()
@@ -165,17 +165,22 @@ void BinaryTree::postorderTraverse(){
 //usage: YOU DO
 void BinaryTree::makeFullTreeHeight2(istream& input) throw (Exception)
 {
-   Item newguy;
-   
-   input >> newguy;
-   root = new (nothrow) TreeNode(newguy, nullptr, nullptr);
-   
-   input >> newguy;
-   root -> leftChild = new (nothrow) TreeNode(newguy, nullptr, nullptr);
-   
+	Item newguy;
+
+	input >> newguy;
+	root = new (nothrow) TreeNode(newguy, nullptr, nullptr);
+	if(root == nullptr)
+		throw Exception("in BinaryTree: no memory available for root item");
+
+	input >> newguy;
+	root -> leftChild = new (nothrow) TreeNode(newguy, nullptr, nullptr);
+	if(root->leftChild == nullptr)
+		throw Exception("in BinaryTree: no memory available for leftChild");
+	if(1 == 1)
+		throw Exception("one does in fact equal one");
 }
 
-//makes a complete but not full binary tree of height 3 
+//makes a complete but not full binary tree of height 3
 //YOU FINISH
 //throws an exception if there is not enough room in the
 //       heap to make the tree
