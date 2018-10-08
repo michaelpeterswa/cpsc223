@@ -19,7 +19,7 @@ using namespace std;
 //usage: copyTree (newptr, oldptr);
 void copyTree (TreeNode*& newtreep, TreeNode* oldtreep) throw (Exception)
 {
-
+//copies either through preorder, inorder, or postorder
 
 }
 
@@ -30,7 +30,12 @@ void copyTree (TreeNode*& newtreep, TreeNode* oldtreep) throw (Exception)
 //usage: destroyTree (mroot);
 void destroyTree (TreeNode*& treep)
 {
-
+	if(treep != nullptr){
+		destroyTree(treep->leftChild);
+		destroyTree(treep->rightChild);
+		delete treep;
+		treep = nullptr;
+	}
 
 }
 
