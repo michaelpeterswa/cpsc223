@@ -5,14 +5,14 @@
 //Specification of ADT TreeNode
 //    data object: a node in a binary tree with an item
 //                 and left and right children
-//    operations: create an empty node, create a particular node, 
-//                set contents of a node, get an item of a node, 
+//    operations: create an empty node, create a particular node,
+//                set contents of a node, get an item of a node,
 //                get the left child, get the right child
 
 #ifndef _TREENODE_H
 #define _TREENODE_H
 
-#include "Item.h"
+#include "item.h"
 
 class TreeNode
 {

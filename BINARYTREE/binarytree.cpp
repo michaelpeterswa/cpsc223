@@ -13,43 +13,43 @@
 //     Operations: create, destroy, insert a new node,
 //                 traversals: preorder, inorder, postorder
 #include <iostream>
-#include "BinaryTree.h"
+#include "binarytree.h"
 using namespace std;
 
 //recursive helper (preorder)
 void preorderHelper(TreeNode tree[], int myroot)
 {
-Item copyItem;
-if(myroot != -1){
-    tree[myroot].getItem(copyItem);
-    cout << "\t" <<  copyItem << endl;
-    preorderHelper(tree, tree[myroot].getLeftChild());
-    preorderHelper(tree, tree[myroot].getRightChild());
-    }
+    Item copyItem;
+    if(myroot != -1){
+        tree[myroot].getItem(copyItem);
+        cout << "\t" <<  copyItem << endl;
+        preorderHelper(tree, tree[myroot].getLeftChild());
+        preorderHelper(tree, tree[myroot].getRightChild());
+        }
 }
 
 //recursive helper (inorder)
 void inorderHelper(TreeNode tree[], int myroot)
 {
-Item copyItem;
-if(myroot != -1){
-    inorderHelper(tree, tree[myroot].getLeftChild());
-    tree[myroot].getItem(copyItem);
-    cout << "\t" <<  copyItem << endl;
-    inorderHelper(tree, tree[myroot].getRightChild());
-    }
+    Item copyItem;
+    if(myroot != -1){
+        inorderHelper(tree, tree[myroot].getLeftChild());
+        tree[myroot].getItem(copyItem);
+        cout << "\t" <<  copyItem << endl;
+        inorderHelper(tree, tree[myroot].getRightChild());
+        }
 }
 
 //recursive helper (postorder)
 void postorderHelper(TreeNode tree[], int myroot)
 {
-Item copyItem;
-if(myroot != -1){
-    postorderHelper(tree, tree[myroot].getLeftChild());
-    postorderHelper(tree, tree[myroot].getRightChild());
-    tree[myroot].getItem(copyItem);
-    cout << "\t" << copyItem << endl;
-    }
+    Item copyItem;
+    if(myroot != -1){
+        postorderHelper(tree, tree[myroot].getLeftChild());
+        postorderHelper(tree, tree[myroot].getRightChild());
+        tree[myroot].getItem(copyItem);
+        cout << "\t" << copyItem << endl;
+        }
 }
 
 //creates an empty binary tree
