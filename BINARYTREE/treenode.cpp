@@ -8,7 +8,7 @@
 //    operations: create an empty node, create a particular node, set contents of a node
 //                 get an item of a node, get the left child, get the right child
 
-#include "TreeNode.h"
+#include "treenode.h"
 
 //makes an empty node
 //post an empty TreeNode object exists
