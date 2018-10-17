@@ -1,10 +1,26 @@
-//file binarytree.cpp
+// file binarytree.cpp
 // Nathan Flack and Michael Peters
+//----------
+// mpeters4
+//----------
 // October 14, 2018
 
-//data object: a binary tree which is YOU DO
+// Specification of ADT Binary Tree
+//    Data object: A binary tree T that is either empty or in the form
+//                 Full or Complete
 //data structure: a linked binary tree
-//operations: YOU DO
+//
+//operations:
+// copyTree()
+// destroyTree()
+// writePretty()
+// makeFullTreeHeight3()
+// makeCompleteTreeHeight4()
+// prettyDisplay()
+// overridden operator=
+// copy constructor
+// order sorting
+// order sorting traversal helpers
 
 #include "binarytree.h"
 #include <iostream>
@@ -47,12 +63,15 @@ void destroyTree(TreeNode*& treep)
 	}
 }
 
-// recursive helper for prettyDisplay. You do the doc
+// recursive helper for prettyDisplay
+// helps to print the tree to look like a computer science tree
+// post: recursively sorts the tree using a method other than preorder, postorder, and inorder
+// usage: writePretty(treep, root);
 void writePretty (TreeNode* treep, int level)
 {
+	Key copyKey;
 	if (treep != nullptr)
 	{
-
 		writePretty(treep -> rightChild, level + 1);
 
 		for(int i = 0; i < level; i++)
@@ -63,9 +82,8 @@ void writePretty (TreeNode* treep, int level)
 			else
 				cout << "\t";
 		}
-
-		cout << treep -> item;
-		cout << "<" << endl;
+		copyKey = treep -> item;
+		cout << copyKey << " <"<< endl;
 		writePretty(treep -> leftChild, level + 1);
 	}// not preorder, not inorder, not postorder
 }
@@ -80,7 +98,7 @@ void preorder (TreeNode* treep)
 {
 	if (treep != nullptr)
 	{
-		cout << treep -> item << endl;
+		cout << treep -> item << "," << endl;
 		preorder(treep -> leftChild);
 		preorder(treep -> rightChild);
 	}
@@ -91,7 +109,7 @@ void inorder (TreeNode* treep)
 	if (treep != nullptr)
 	{
 		inorder(treep -> leftChild);
-		cout << treep -> item << endl;
+		cout << treep -> item << "," << endl;
 		inorder(treep -> rightChild);
 	}
 }
@@ -101,9 +119,9 @@ void postorder (TreeNode* treep)
 {
 	if (treep != nullptr)
 	{
-		inorder(treep -> leftChild);
-		inorder(treep -> rightChild);
-		cout << treep -> item << endl;
+		postorder(treep -> leftChild);
+		postorder(treep -> rightChild);
+		cout << treep -> item << "," << endl;
 	}
 }
 
@@ -189,29 +207,38 @@ void BinaryTree::prettyDisplay()
 //usage: tree.preorderTraverse();
 //similarly for the other traversals
 // *****************************************************
+
+//preorder traversal
+//post: prints the objects in the preorder
+//usage: tree.preorderTraverse();
 void BinaryTree::preorderTraverse ()
 {
    preorder(root);
 }
 
+//inorder traversal
+//post: prints the objects in the inorder
+//usage: tree.inorderTraverse();
 void BinaryTree::inorderTraverse()
 {
 	inorder(root);
 }
 
-
+//postorder traversal
+//post: prints the objects in the postorder
+//usage: tree.postorderTraverse();
 void BinaryTree::postorderTraverse()
 {
 	postorder(root);
 }
 
-//makes a full binary tree of height 2
+//makes a full binary tree of height 3
 //pre input is either cin or an open file
 //    input's pointer is before the first item
-//post: object is a full binary tree of height 2
+//post: object is a full binary tree of height 3
 //throws an exception if there is not enough room in the
 //       heap to make the tree
-//usage: YOU DO
+//usage: makeFullTreeHeight3(infile);
 void BinaryTree::makeFullTreeHeight3(istream& input) throw (Exception)
 {
 	Item newguy;
@@ -253,11 +280,14 @@ void BinaryTree::makeFullTreeHeight3(istream& input) throw (Exception)
 
 }
 
-//makes a complete but not full binary tree of height 3
-//YOU FINISH
+//makes a complete but not full binary tree of height 4
+//Only inputs 9 items, static function
 //throws an exception if there is not enough room in the
 //       heap to make the tree
-void BinaryTree::makeCompleteTreeHeight3(istream& input) throw (Exception)
+//also throws specific exception due to project reqs
+//	will throw when there is room left in heap
+//usage: makeCompleteTreeHeight4(infile);
+void BinaryTree::makeCompleteTreeHeight4(istream& input) throw (Exception)
 {
 	Item newguy;
 
@@ -291,6 +321,21 @@ void BinaryTree::makeCompleteTreeHeight3(istream& input) throw (Exception)
 	if(root->rightChild->leftChild == nullptr)
 		throw Exception("in BinaryTree: no memory from heap available for right left Child");
 
-	if(root-> rightChild-> leftChild != nullptr)
+    input >> newguy;
+    root-> rightChild-> rightChild = new (nothrow) TreeNode(newguy, nullptr, nullptr);
+    if(root-> rightChild-> rightChild == nullptr)
+   		throw Exception("in BinaryTree: no memory available in heap for right right item");
+
+	input >> newguy;
+	root -> leftChild->leftChild->leftChild = new (nothrow) TreeNode(newguy, nullptr, nullptr);
+	if(root->leftChild->leftChild->leftChild == nullptr)
+	    throw Exception("in BinaryTree: no memory from heap available for left left leftChild");
+
+	input >> newguy;
+	root -> leftChild->leftChild->rightChild = new (nothrow) TreeNode(newguy, nullptr, nullptr);
+	if(root->leftChild->leftChild->rightChild == nullptr)
+		throw Exception("in BinaryTree: no memory from heap available for left left rightChild");
+
+	if(root->leftChild->leftChild->rightChild != nullptr)
 		throw Exception("I am throwing an exception at you, Dr. Y. Do you have your catcher’s mitt ready?");
 }

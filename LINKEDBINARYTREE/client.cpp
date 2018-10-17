@@ -1,5 +1,14 @@
-//clientguy
-// clang++ -std=c++11 client.cpp binarytree.cpp exception.cpp treenode.cpp item.cpp key.cpp -o gotree
+/*
+Michael Peters and Nathan Flack
+mpeters4
+7 October 2018
+Description: This is a client program that tests the member functions of abstract
+data type Binary Tree. It creates a full tree of height 3 and a degenerate tree of height 4. It also
+runs the ordering functions for each tree.
+
+clang++ -std=c++11 client.cpp binarytree.cpp exception.cpp treenode.cpp item.cpp key.cpp -o gotree
+*/
+
 
 #include "binarytree.h"
 #include "exception.h"
@@ -21,11 +30,23 @@ void openInputFile(ifstream& inputFile, string filename);
 //usage PrintExceptionMessage(except);
 void printExceptionMessage(const Exception& except);
 
-void runCompleteTreeHeight3(ifstream& infile, BinaryTree aTree);
+//runs necessary functions for complete tree height 4
+//pre: infile exists and aTree exists;
+//post: runs make, print, and runOrders
+//usage: runCompleteTreeHeight4(infile, aTree);
+void runCompleteTreeHeight4(ifstream& infile, BinaryTree& aTree);
 
-void runFullTreeHeight3(ifstream& infile, BinaryTree aTree);
+//runs necessary functions for full tree height 3
+//pre: infile exists and aTree exists;
+//post: runs make, print, and runOrders
+//usage: runFullTreeHeight3(infile, aTree);
+void runFullTreeHeight3(ifstream& infile, BinaryTree& aTree);
 
-void runOrders(BinaryTree aTree);
+//runs order traversals
+//pre: a tree exists
+//post: order traversals are printed for aTree
+//usage: runOrders(mytree);
+void runOrders(BinaryTree& aTree);
 
 int main()
 {
@@ -33,8 +54,9 @@ int main()
    ifstream infile;
 
    openInputFile(infile, "in.dat");
+
    runFullTreeHeight3(infile, fullTree);
-   runCompleteTreeHeight3(infile, completeTree);
+   runCompleteTreeHeight4(infile, completeTree);
 
    return 0;
 }
@@ -66,10 +88,14 @@ void printExceptionMessage(const Exception& except)
    cout << endl << endl;
 }
 
-void runCompleteTreeHeight3(ifstream& infile, BinaryTree aTree){
+//runs necessary functions for complete tree height 4
+//pre: infile exists and aTree exists;
+//post: runs make, print, and runOrders
+//usage: runCompleteTreeHeight4(infile, aTree);
+void runCompleteTreeHeight4(ifstream& infile, BinaryTree& aTree){
 
     try{
-        aTree.makeCompleteTreeHeight3(infile);
+        aTree.makeCompleteTreeHeight4(infile);
     }
     catch (Exception except)
     {
@@ -77,14 +103,18 @@ void runCompleteTreeHeight3(ifstream& infile, BinaryTree aTree){
     }
 
     cout << endl;
-    cout << "Complete Tree Height 3:" << endl;
+    cout << "Complete Tree Height 4:" << endl;
     cout << endl;
     aTree.prettyDisplay();
     runOrders(aTree);
     cout << "------------------------------" << endl;
 }
 
-void runFullTreeHeight3(ifstream& infile, BinaryTree aTree){
+//runs necessary functions for full tree height 3
+//pre: infile exists and aTree exists;
+//post: runs make, print, and runOrders
+//usage: runFullTreeHeight3(infile, aTree);
+void runFullTreeHeight3(ifstream& infile, BinaryTree& aTree){
 
     try{
         aTree.makeFullTreeHeight3(infile);
@@ -102,7 +132,11 @@ void runFullTreeHeight3(ifstream& infile, BinaryTree aTree){
     cout << "------------------------------" << endl;
 }
 
-void runOrders(BinaryTree aTree){
+//runs order traversals
+//pre: a tree exists
+//post: order traversals are printed for aTree
+//usage: runOrders(mytree);
+void runOrders(BinaryTree& aTree){
     cout << endl << endl;
     cout << "Preorder:" << endl;
     cout << endl;

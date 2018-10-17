@@ -1,12 +1,13 @@
 //file binarytree.h
-//author Dr. Y
-//date October 8, 2018
+//Michael Peters and Nathan Flack
+//date October 14, 2018
 
 // Specification of ADT Binary Tree
 //    Data object: A binary tree T that is either empty or in the form
-// you finish
-
-//    Operations: (a scaled-down version)
+//                 Full or Complete. The root node x has two children (of which aren't necessarily full)
+//                                                                     rightChild and leftChild.
+//                                   Each node can be the root, in a recursive function
+//   Operations: (a scaled-down version)
 //       create, destroy, copy, operator=,
 //       traversals (preorder, inorder, postorder)
 // Contract: Assumes the this class can access private data members of class Node.
@@ -91,13 +92,13 @@ public:
    //usage: tree.makeFullTreeHeight3(infile);
    void makeFullTreeHeight3(istream& input) throw (Exception);
 
-   //makes a complete binary tree of height 3
+   //makes a complete binary tree of height 4
    //pre input is either cin or an open file
-   //post: object is a complete binary tree of height 3
+   //post: object is a complete binary tree of height 4
    //throws an exception if there is not enough room in the
    //       heap to make the tree
-   //usage: tree.makeCompleteTreeHeight3(infile);
-   void makeCompleteTreeHeight3(istream& input) throw (Exception);
+   //usage: tree.makeCompleteTreeHeight4(infile);
+   void makeCompleteTreeHeight4(istream& input) throw (Exception);
 
 protected:
 

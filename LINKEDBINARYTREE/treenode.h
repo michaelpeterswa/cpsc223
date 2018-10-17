@@ -18,10 +18,12 @@ class TreeNode
 {
 public:
 
-//YOU DO
+//constructor for TreeNode object
+//post: TreeNode exists
 TreeNode();
 
-//YOU DO
+//constructor with Data
+//post: filled TreeNode exists
 TreeNode(const Item& newItem, TreeNode* theLeft, TreeNode* theRight);
 
 Item item;
