@@ -29,7 +29,14 @@ DICTIONARYCHAINING
 ```
 clang++ -std=c++11 client.cpp dictionary.cpp item.cpp key.cpp stack.cpp -o gochain
 ```
-
+BINARYTREE
+```
+g++ client.cpp binarytree.cpp treenode.cpp item.cpp key.cpp –o gotree
+```
+LINKEDBINARYTREE
+```
+clang++ -std=c++11 client.cpp binarytree.cpp exception.cpp treenode.cpp item.cpp key.cpp -o gotree
+```
 ## Release History
 
 * 0.1
