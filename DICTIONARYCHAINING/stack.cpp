@@ -130,7 +130,7 @@ Stack& Stack::operator=(const Stack& rhsStack)
 	 while (rhsPtr != nullptr)
 	 {
 	    currPtr -> next = new Node;
-            currPtr = currPtr -> next;
+    	currPtr = currPtr -> next;
 	    currPtr -> item = rhsPtr -> item;
 	    currPtr -> next = nullptr;
 	    rhsPtr = rhsPtr -> next;
