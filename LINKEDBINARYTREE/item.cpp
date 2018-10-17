@@ -3,7 +3,7 @@
 // Implementation of Abstract Data Type Item
 //
 //   data object: an item which is a texting meaning associated with a texting abbreviation
-//   operations: create, destroy, copy, 
+//   operations: create, destroy, copy,
 //               input, output, assign
 
 #include "item.h"
@@ -26,10 +26,10 @@ istream& operator>> (istream& input, Item& rightHandSideItem)
 	getline(input, rightHandSideItem.meaning); // extracts the newline
 	return input;
 }
- 
+
 //allows for the output of an item to the standard output device or a file
 //pre rightHandSideItem has been filled with a texting abbreviation and
-//    its associated meaning 
+//    its associated meaning
 //    output has been opened
 //post rightHandSideItem has been written to the output device
 //     lol:  laugh out loud
@@ -46,7 +46,7 @@ ostream& operator<< (ostream& output, const Item& rightHandSideItem)
 //usage Item aitem;
 Item::Item()
 {
-	
+
 }
 
 //releases memory for a texting abbreviation and its associated meaning
@@ -55,7 +55,7 @@ Item::Item()
 //usage automatically done at the end of scope
 Item::~Item()
 {
-	
+
 }
 
 //creates a new item and copies the right hand side item into item

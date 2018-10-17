@@ -76,7 +76,7 @@ public:
    // *************** on the following traversals
    //uses: operator<< from class Item
    //post: prints the objects in the tree in order specified
-   //usage: tree.preorderTraverse();  
+   //usage: tree.preorderTraverse();
    //similarly for the other traversals
    // *****************************************************
    void preorderTraverse ();
@@ -99,7 +99,7 @@ public:
    //usage: tree.makeCompleteTreeHeight3(infile);
    void makeCompleteTreeHeight3(istream& input) throw (Exception);
 
-protected: 
+protected:
 
     TreeNode* root;
 };

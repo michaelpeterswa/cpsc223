@@ -4,9 +4,9 @@
 //Specification of Abstract Data Type Key
 //
 //   data object: a key which is a texting abbreviation
-//   operations: create, destroy, copy, 
+//   operations: create, destroy, copy,
 //               input, output, assign
-//               check if same, check if less than, 
+//               check if same, check if less than,
 //               convert to an integer
 
 #ifndef KEY_H
@@ -40,7 +40,7 @@ Key();
 //creates a specific texting abbreviation
 //pre keyText is assigned a string that represents a texting abbreviation
 //post Key object has a copy of the texting abbreviation in keyText
-//usage Key akey("lol"); 
+//usage Key akey("lol");
 Key(string keyText);
 
 //releases memory for a texting abbreviation
@@ -77,7 +77,3 @@ protected:
    string textingAbbreviation;
 };
 #endif
-
-
-
-

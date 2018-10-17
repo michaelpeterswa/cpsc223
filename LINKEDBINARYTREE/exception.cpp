@@ -17,13 +17,13 @@
 //pre  theMessage passed may be a literal string
 //post exception message object is assigned theMessage
 //usage throw cexception ("BAD MOVE");
-Exception::Exception(string theMessage) 
+Exception::Exception(string theMessage)
 {
    message = theMessage;
 }
 
 //outputs a message exception
-//pre message object has been assigned 
+//pre message object has been assigned
 //post returns the exception message when exception is thrown
 //usage cout << except.what() << endl;
 string Exception::what() const

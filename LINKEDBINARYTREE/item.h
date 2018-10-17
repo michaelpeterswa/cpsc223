@@ -9,12 +9,12 @@
 #ifndef ITEM_H
 #define ITEM_H
 
-#include "key.h" 
+#include "key.h"
 using namespace std;
 
 class Item: public Key
 {
- 
+
 //allows for input of an item from either the standard input device or a file
 //pre input has been opened and readied for the input of
 //    a texting abbreviation followed by newline and associated meaning with
@@ -26,21 +26,21 @@ class Item: public Key
 //     associated meaning
 //usage cin >> myItem;
 friend istream& operator>> (istream& input, Item& rightHandSideItem);
- 
+
 //allows for the output of an item to the standard output device or a file
 //pre rightHandSideItem has been filled with a texting abbreviation and
-//    its associated meaning 
+//    its associated meaning
 //    output has been opened
 //post rightHandSideItem has been written to the output device
 //     lol:  laugh out loud
-// 
+//
 //usage  outfile << myItem;
 friend ostream& operator<< (ostream& output, const Item& rightHandSideItem);
 
 public:
 
 //creates an empty item (texting abbreviation and its associated meaning)
-//post 
+//post
 //usage Item aitem;
 Item();
 
@@ -65,4 +65,4 @@ Item& operator=(const Item& rightHandSideItem);
 private:
    string meaning;
 };
-#endif         
+#endif

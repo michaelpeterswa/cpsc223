@@ -21,7 +21,7 @@ public:
    Exception(string theMessage ) ;
 
    //outputs a message exception
-   //pre message object has been assigned 
+   //pre message object has been assigned
    //post returns the exception message when exception is thrown
    //usage cout << except.what() << endl;
    string what() const;
