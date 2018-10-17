@@ -1,4 +1,5 @@
 //clientguy
+// clang++ -std=c++11 client.cpp binarytree.cpp exception.cpp treenode.cpp item.cpp key.cpp -o gotree
 
 #include "binarytree.h"
 #include "exception.h"
@@ -20,26 +21,21 @@ void openInputFile(ifstream& inputFile, string filename);
 //usage PrintExceptionMessage(except);
 void printExceptionMessage(const Exception& except);
 
+void runCompleteTreeHeight3(ifstream& infile, BinaryTree aTree);
+
+void runFullTreeHeight3(ifstream& infile, BinaryTree aTree);
+
+void runOrders(BinaryTree aTree);
+
 int main()
 {
-   BinaryTree mytree, otherTree;
+   BinaryTree completeTree, fullTree;
    ifstream infile;
 
    openInputFile(infile, "in.dat");
+   runFullTreeHeight3(infile, fullTree);
+   runCompleteTreeHeight3(infile, completeTree);
 
-   try {
-     mytree.makeCompleteTreeHeight3(infile);
-     mytree.preorderTraverse();
-	 cout << endl << endl;
-	 mytree.prettyDisplay();
-	 cout << endl << endl;
-	 otherTree = mytree;
-	 otherTree.prettyDisplay();
-    }
-   catch (Exception except)
-   {
-      printExceptionMessage(except);
-   }
    return 0;
 }
 
@@ -70,8 +66,54 @@ void printExceptionMessage(const Exception& except)
    cout << endl << endl;
 }
 
-void testCopyTree()
-{
+void runCompleteTreeHeight3(ifstream& infile, BinaryTree aTree){
 
+    try{
+        aTree.makeCompleteTreeHeight3(infile);
+    }
+    catch (Exception except)
+    {
+       printExceptionMessage(except);
+    }
 
+    cout << endl;
+    cout << "Complete Tree Height 3:" << endl;
+    cout << endl;
+    aTree.prettyDisplay();
+    runOrders(aTree);
+    cout << "------------------------------" << endl;
+}
+
+void runFullTreeHeight3(ifstream& infile, BinaryTree aTree){
+
+    try{
+        aTree.makeFullTreeHeight3(infile);
+    }
+    catch (Exception except)
+    {
+       printExceptionMessage(except);
+    }
+
+    cout << endl;
+    cout << "Full Tree Height 3:" << endl;
+    cout << endl;
+    aTree.prettyDisplay();
+    runOrders(aTree);
+    cout << "------------------------------" << endl;
+}
+
+void runOrders(BinaryTree aTree){
+    cout << endl << endl;
+    cout << "Preorder:" << endl;
+    cout << endl;
+    aTree.preorderTraverse();
+    cout << endl;
+    cout << "Inorder:" << endl;
+    cout << endl;
+    aTree.inorderTraverse();
+    cout << endl;
+    cout << "Postorder:" << endl;
+    cout << endl;
+    aTree.postorderTraverse();
+    cout << endl;
 }

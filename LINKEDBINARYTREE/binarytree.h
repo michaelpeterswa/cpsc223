@@ -83,13 +83,13 @@ public:
    void inorderTraverse ();
    void postorderTraverse();
 
-   //makes a full binary tree of height 2
+   //makes a full binary tree of height 3
    //pre input is either cin or an open file
-   //post: object is a full binary tree of height 2
+   //post: object is a full binary tree of height 3
    //throws an exception if there is not enough room in the
    //       heap to make the tree
-   //usage: tree.makeFullTreeHeight2(infile);
-   void makeFullTreeHeight2(istream& input) throw (Exception);
+   //usage: tree.makeFullTreeHeight3(infile);
+   void makeFullTreeHeight3(istream& input) throw (Exception);
 
    //makes a complete binary tree of height 3
    //pre input is either cin or an open file
