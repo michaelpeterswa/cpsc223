@@ -12,9 +12,6 @@ using namespace std;
 //      with its file pointer at the beginning of the file
 //      else an error message is printed
 //usage openInputFile(infile, filename);
-
-// clang++ -std=c++11 client.cpp binarytree.cpp exception.cpp treenode.cpp item.cpp key.cpp -o gotree
-
 void openInputFile(ifstream& inputFile, string filename);
 
 //prints an exception message
@@ -31,14 +28,18 @@ int main()
    openInputFile(infile, "in.dat");
 
    try {
-     mytree.makeFullTreeHeight2(infile);
+     mytree.makeCompleteTreeHeight3(infile);
      mytree.preorderTraverse();
+	 cout << endl << endl;
+	 mytree.prettyDisplay();
+	 cout << endl << endl;
+	 otherTree = mytree;
+	 otherTree.prettyDisplay();
     }
    catch (Exception except)
    {
       printExceptionMessage(except);
    }
-
    return 0;
 }
 
@@ -67,4 +68,10 @@ void printExceptionMessage(const Exception& except)
    cout << endl << endl;
    cout << except.what();
    cout << endl << endl;
+}
+
+void testCopyTree()
+{
+
+
 }
