@@ -104,12 +104,12 @@ void preorder (TreeNode* treep)
 	}
 }
 
-void inorder (TreeNode* treep)
+void inorder (TreeNode* treep, ostream& output)
 {
 	if (treep != nullptr)
 	{
 		inorder(treep -> leftChild);
-		cout << treep -> item << "," << endl;
+		output << treep -> item << "," << endl;
 		inorder(treep -> rightChild);
 	}
 }
@@ -219,9 +219,9 @@ void BinaryTree::preorderTraverse ()
 //inorder traversal
 //post: prints the objects in the inorder
 //usage: tree.inorderTraverse();
-void BinaryTree::inorderTraverse()
+void BinaryTree::inorderTraverse(ostream& output)
 {
-	inorder(root);
+	inorder(root, output); //change headers
 }
 
 //postorder traversal

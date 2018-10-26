@@ -18,7 +18,7 @@ dropoff: mpeters4
 #include <iomanip>
 using namespace std;
 
-bool searchHelper(TreeNode* treep, const Key& targetText, Item& anItem){
+bool searchHelper(TreeNode* treep, const Key& targetText, Item& anItem) throw (Exception){
     if (treep != nullptr){
         if(targetText == treep -> item){
             anItem = treep -> item;
@@ -28,8 +28,18 @@ bool searchHelper(TreeNode* treep, const Key& targetText, Item& anItem){
         }else
             return searchHelper(treep -> rightChild, targetText, anItem);
     }
-return false;
-}
+
+void addNewHelper(TreeNode* treep, const Item& anItem) throw (Exception){
+    if (treep != nullptr){
+        if(targetText == treep -> item){
+            anItem = treep -> item;
+        }else if (targetText < treep -> item){
+            addNewHelper(treep -> leftChild, anItem);
+        }else
+            addNewHelper(treep -> rightChild, anItem);
+    }
+treep = new (nothrow) TreeNode(newItem, nullptr, nullptr);
+} //figure out where to throw if already there and if full
 
 // searchs for a meaning with a given text
 // pre targetText has been assigned a value not already in the hash table
@@ -37,7 +47,7 @@ return false;
 //          isFound is true and theItem is that item
 //       else isFound is false
 // usage  myTree.searchForMeaning(root, targetText, anItem, isFound){;
-void BinarySearchTree::searchForMeaning(TreeNode* treeRoot, const Key& targetText, Item& anItem, bool& isFound){
+void BinarySearchTree::searchForMeaning(TreeNode* treeRoot, const Key& targetText, Item& anItem) throw (Exception){
     searchHelper(treeRoot, targetText, anItem);
 }
 
@@ -48,8 +58,8 @@ void BinarySearchTree::searchForMeaning(TreeNode* treeRoot, const Key& targetTex
 //            and anItem is appropriately added
 //       else either isFull is true or isAlreadyThere is true, depending
 // usage: myTree.addNewEntry(myItem, isAlreadyThere);
-void BinarySearchTree::addNewEntry(const Item& newItem, bool& isAlreadyThere){
-
+void BinarySearchTree::addNewEntry(const Item& newItem, bool& isAlreadyThere) throw (Exception){
+    addNewHelper(root, newItem);
 }
 
 // removes the item associated with a given text from the dictionary

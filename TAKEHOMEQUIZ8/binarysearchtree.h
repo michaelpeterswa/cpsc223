@@ -12,6 +12,7 @@
 #define BINARYSEARCHTREE_H
 
 #include "binarytree.h"
+#include "exception.h"
 
 struct SearchTree;
 
@@ -44,9 +45,9 @@ void searchForMeaning(TreeNode* root, const Key& targetText, Item& anItem, bool&
 // post: if there is room in the BinarySearchTree object and newItem's text
 //            is not already there and isAlreadyThere is false
 //            and anItem is appropriately added
-//       else either isFull is true or isAlreadyThere is true, depending
+//       else throw exception if is isAlreadyThere
 // usage: myTree.addNewEntry(myItem, isAlreadyThere);
-void addNewEntry(const Item& newItem, bool& isAlreadyThere);
+void addNewEntry(const Item& newItem) throw (Exception);
 
 // removes the item associated with a given text from the dictionary
 // pre: targetText is assigned
@@ -54,11 +55,13 @@ void addNewEntry(const Item& newItem, bool& isAlreadyThere);
 //           targetText is found in BinarySearchTree object, isFound is true
 //           and the associated Item object (text and meaning) has been
 //           removed from the BinarySearchTree object
-//       else isFound is false or isEmpty is true depending
+//       else throw exception if empty or not found
 // usage: myTree.deleteEntry(myText, isEmpty, isFound);
-void deleteEntry(const Key& targetText, bool& isEmpty, bool& isFound);
+void deleteEntry(const Key& targetText) throw (Exception);
 
 int returnEntries();
+
+void inorderTraverse (ostream& output);//override inorder from BinaryTree (parent class)
 
 private:
     int numberOfEntries;

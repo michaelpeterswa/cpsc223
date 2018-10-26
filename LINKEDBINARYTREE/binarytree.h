@@ -81,7 +81,7 @@ public:
    //similarly for the other traversals
    // *****************************************************
    void preorderTraverse ();
-   void inorderTraverse ();
+   void inorderTraverse (ostream& output);
    void postorderTraverse();
 
    //makes a full binary tree of height 3
