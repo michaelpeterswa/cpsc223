@@ -37,6 +37,15 @@ LINKEDBINARYTREE
 ```
 clang++ -std=c++11 client.cpp binarytree.cpp exception.cpp treenode.cpp item.cpp key.cpp -o gotree
 ```
+TAKEHOMEQUIZ8
+```
+clang++ -std=c++11 client.cpp binarytree.cpp exception.cpp treenode.cpp item.cpp key.cpp -o gotree
+```
+DICTIONARYBST
+```
+make clean
+make client
+```
 ## Release History
 
 * 0.1
