@@ -1,5 +1,8 @@
 //Michael Peters and Nathan Flack
-//
+//clientprogram.cpp
+//November 2, 2018
+//dropoff: mpeters4
+
 #include <iostream>
 #include <fstream>
 #include "binarysearchtree.h"
@@ -7,32 +10,39 @@
 
 using namespace std;
 
+//menu functions
 void printMenu();
 void welcome();
 char getInput();
 char menuPrompt();
 void doMenu(istream&, ostream&, BinarySearchTree&);
 
+//option functions
 void runSearch(BinarySearchTree&);
 void runInsert(BinarySearchTree&);
 void runList(BinarySearchTree&);
 void runPrint(BinarySearchTree&);
 void runRebalance(istream&, ostream&, BinarySearchTree&);
 void runSave(ostream&, BinarySearchTree&);
+void readFromFile(istream&, BinarySearchTree&);
 
+//main
 int main(){
 
     BinarySearchTree masterDirectory;
 
     ifstream infile("dictionary.dat"); //file input used for testing reading from file
-    ofstream outfile("dictionary.dat"); //file output used for testing writing to a file
 
     welcome();
+    readFromFile(infile, masterDirectory);
+
+    ofstream outfile("dictionary.dat"); //file output used for testing writing to a file
     doMenu(infile, outfile, masterDirectory);
 
     return 0;
 }
 
+//prints the menu, in doMenu
 void printMenu(){
     cout << "----------------------------------------------------" << endl;
     cout << "Option:\t Command" << endl;
@@ -48,12 +58,14 @@ void printMenu(){
 
 }
 
+//welcome function that runs once at start
 void welcome(){
     cout << "Welcome to the Electronic Directory" << endl;
     cout << "\tdesigned by Michael Peters and Nathan Flack" << endl;
     cout << endl;
 }
 
+//recieve input from the line
 char getInput(){
     char input, newline;
     cin.get(input);
@@ -62,10 +74,11 @@ char getInput(){
     return input;
 }
 
+//prompt for the menu
 char menuPrompt(){
     char input;
 
-    cout << "Please enter the option of your choosing (single lowercase option letter): ";
+    cout << "Please enter the option of your choosing (single lowercase option letter only): ";
     input = getInput();
     cout << "---------------------------------------------------------" << endl;
     cout << endl;
@@ -73,6 +86,7 @@ char menuPrompt(){
     return input;
 }
 
+//central menu function
 void doMenu(istream& infile, ostream& outfile, BinarySearchTree& masterTree){
     char inp;
 
@@ -133,6 +147,7 @@ void doMenu(istream& infile, ostream& outfile, BinarySearchTree& masterTree){
     }
 }
 
+//run search
 void runSearch(BinarySearchTree& masterTree){
     Item foundItem;
     Key newKey;
@@ -142,6 +157,7 @@ void runSearch(BinarySearchTree& masterTree){
     cout << endl;
 
     if(masterTree.searchForMeaning(newKey, foundItem)){
+        cout << "Found! Here is the contact: ";
         cout << foundItem << endl;
     }
     else{
@@ -149,24 +165,35 @@ void runSearch(BinarySearchTree& masterTree){
     }
 }
 
+//run insert of a name and number
 void runInsert(BinarySearchTree& masterTree){
     Item newItem;
 
     cout << endl;
     cout << "Please enter contact information (number followed by name): ";
     cin >> newItem;
-    masterTree.addNewEntry(newItem);
+
+    try{
+        masterTree.addNewEntry(newItem);
+    }
+    catch (Exception except){
+        cout << except.what() << endl;
+    }
+
     cout << endl;
 
 }
 
+//runs list
 void runList(BinarySearchTree& masterTree){
     cout << endl;
     cout << "Listing the contacts..." << endl;
     cout << endl;
-    masterTree.inorderTraverse(cout);
+    masterTree.BinaryTree::inorderTraverse();
+    cout << endl;
 }
 
+//runs print
 void runPrint(BinarySearchTree& masterTree){
     cout << endl;
     cout << "Printing the tree..." << endl;
@@ -174,6 +201,7 @@ void runPrint(BinarySearchTree& masterTree){
     masterTree.prettyDisplay();
 }
 
+//runs rebalance
 void runRebalance(istream& infile, ostream& outfile, BinarySearchTree& masterTree){
     cout << endl;
     cout << "Rebalancing the tree..." << endl;
@@ -185,7 +213,21 @@ void runRebalance(istream& infile, ostream& outfile, BinarySearchTree& masterTre
     cout << endl;
 }
 
+//run save
 void runSave(ostream& outfile, BinarySearchTree& masterTree){
     masterTree.inorderTraverse(outfile);
     cout << "Saving to file." << endl;
+}
+
+//run read at start
+void readFromFile(istream& infile, BinarySearchTree& masterTree){
+    int numberOfItems;
+    infile >> numberOfItems;
+    cout << numberOfItems << " items read from file"<<endl;
+    for (int i = 0; i < numberOfItems; i++)
+    {
+        Item newItem;
+        infile >> newItem;
+        masterTree.addNewEntry(newItem);
+    }
 }

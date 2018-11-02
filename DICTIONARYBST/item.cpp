@@ -37,7 +37,7 @@ istream& operator>> (istream& input, Item& rightHandSideItem)
 //usage  outfile << myItem;
 ostream& operator<< (ostream& output, const Item& rightHandSideItem)
 {
-	output << rightHandSideItem.textingAbbreviation << ": " << rightHandSideItem.meaning;
+	output << rightHandSideItem.textingAbbreviation << " " << rightHandSideItem.meaning;
 	return output;
 }
 
@@ -80,4 +80,7 @@ Item& Item::operator=(const Item& rightHandSideItem)
 		meaning = rightHandSideItem.meaning;
    }
    return *this;
+}
+string Item::getText(){
+	return meaning;
 }

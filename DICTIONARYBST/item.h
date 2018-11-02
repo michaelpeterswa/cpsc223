@@ -62,6 +62,8 @@ Item(const Item& rightHandSideItem);
 //usage
 Item& operator=(const Item& rightHandSideItem);
 
+string getText();
+
 private:
    string meaning;
 };

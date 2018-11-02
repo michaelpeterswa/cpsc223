@@ -1,3 +1,5 @@
+//Michael Peters and Nathan Flack
+
 // Specification of ADT Dictionary as ADT Binary Search Tree
 //     data object: a bunch of texting abbreviations and their meanings
 //     operations: create, destroy
@@ -63,6 +65,7 @@ void inorderSearchTree (TreeNode* treep, ostream& output)
 //          then the item in the root node is copied into anItem and
 //          returns true; otherwise, returns false
 // usage: isFound = searchHelper(root, targetText, anItem);
+
 bool searchHelper(TreeNode* treep, const Key& targetText, Item& anItem)
 {
    if (treep != nullptr)
@@ -81,13 +84,15 @@ bool searchHelper(TreeNode* treep, const Key& targetText, Item& anItem)
    }
 }
 
+//helper for adding a directory item
 void addHelper(TreeNode*& treep, const Item& newItem) throw(Exception)
 {
    if (treep != nullptr)
    {
       if (newItem == treep -> item)
       {
-         //throw Exception("already there");
+         cout << endl;
+         throw Exception("This number is already in the directory.");
 	  } else if (newItem < treep -> item) {
          addHelper(treep -> leftChild, newItem);
       } else {
@@ -97,11 +102,12 @@ void addHelper(TreeNode*& treep, const Item& newItem) throw(Exception)
 	   treep = new (nothrow) TreeNode(newItem, nullptr, nullptr);
 	   if (treep == nullptr)
 	   {
-		   throw Exception("Binary search tree ");
+		   throw Exception("The directory was unable to add the number provided. (possibly out of memory)");
 	   }
    }
 }
 
+//delete helper, unused
 bool deleteHelper(TreeNode*& treep, const Key& targetText)
 {
 	if (treep != nullptr)
@@ -233,28 +239,29 @@ void BinarySearchTree::deleteEntry(const Key& targetText) throw(Exception)
 }
 
 //
+//traverses the items in the tree while outputting them
+//  uses inorder to sort the items
+//  pre: a BST object exists
+//  post: items in BST are written to a file or on screen
 //
-//
-//
-//
-//
-//
+//usage myTree.inorderTraverse(outfile);
 void BinarySearchTree::inorderTraverse(ostream& output)
 {
-	output << "Number of Items: " << numberOfItems << endl;
+	output << numberOfItems << endl;
 	inorderSearchTree(root, output);
 }
 
 
 //
+//rebalances a possibly unbalanced BST
+//  uses inorder to sort the items
+//  pre: a BST object exists
+//  post: items in BST are balanced in the BST
 //
-//
-//
-//
-//
-//
+//  usage: myTree.reBalance(infile, outfile);
 void BinarySearchTree::reBalance(istream& inFile, ostream& oFile)
 {
+    oFile << numberOfItems << endl;
 	inorderSearchTree(root, oFile);
 	readTree(inFile, root, numberOfItems);
 }

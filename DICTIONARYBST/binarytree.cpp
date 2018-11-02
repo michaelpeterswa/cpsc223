@@ -125,8 +125,8 @@ void inorder (TreeNode* treep)
 	if (treep != nullptr)
 	{
 		inorder(treep -> leftChild);
-		Key treepKey = treep->item;
-		cout << treepKey << "," << endl;
+		Item treepItem = treep->item;
+		cout << treepItem.getText() <<  endl;
 		inorder(treep -> rightChild);
 	}
 }
